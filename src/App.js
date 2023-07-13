@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import Navbar from "./Components/Nav/navbar";
 
 function App() {
   const [wives, setWives] = useState(0);
@@ -25,6 +26,7 @@ function App() {
   return (
     <div className="App">
       <h1>
+        <Navbar />
         {wives === 1 ? "Wife" : "Number of Wives"}: {wives}
       </h1>
       <h1>Number of kids: {kids}</h1>
