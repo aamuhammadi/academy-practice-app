@@ -25,8 +25,8 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar />
       <h1>
-        <Navbar />
         {wives === 1 ? "Wife" : "Number of Wives"}: {wives}
       </h1>
       <h1>Number of kids: {kids}</h1>

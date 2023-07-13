@@ -2,32 +2,25 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav className="bg-blue-500">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between">
-          <div className="flex space-x-4">
-            <a href="#" className="text-white font-bold text-lg">
-              Home
-            </a>
-            <a href="#" className="text-white hover:text-gray-200">
-              About
-            </a>
-            <a href="#" className="text-white hover:text-gray-200">
-              Services
-            </a>
-            <a href="#" className="text-white hover:text-gray-200">
-              Contact
-            </a>
-          </div>
-          <div className="flex space-x-4">
-            <a href="#" className="text-white hover:text-gray-200">
-              Login
-            </a>
-            <a href="#" className="text-white hover:text-gray-200">
-              Sign Up
-            </a>
-          </div>
-        </div>
+    <nav className="navbar">
+      <div className="container">
+        <a className="navbar-brand" href="#">
+          Logo
+        </a>
+        <ul className="navbar-menu">
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Services</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
       </div>
     </nav>
   );
