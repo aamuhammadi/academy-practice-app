@@ -24,7 +24,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Number of Wives: {wives}</h1>
+      <h1>
+        {wives === 1 ? "Wife" : "Number of Wives"}: {wives}
+      </h1>
       <h1>Number of kids: {kids}</h1>
       <button onClick={minWife}>-</button>
 
