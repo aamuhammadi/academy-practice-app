@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "./App.css";
 import Navbar from "./Components/Nav/navbar";
+import "./style.css";
+import BarberShop from "./Components/barberShopCode";
 
 function App() {
   const [wives, setWives] = useState(0);
@@ -25,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar />
       <h1>
         {wives === 1 ? "Wife" : "Number of Wives"}: {wives}
       </h1>
@@ -33,7 +34,8 @@ function App() {
       <button onClick={minWife}>-</button>
 
       <button onClick={addWife}>+</button>
-      <button onClick={resetValue}>Reset</button>
+      <button onClick={resetValue}>Reset</button> */}
+      <BarberShop />
     </div>
   );
 }
