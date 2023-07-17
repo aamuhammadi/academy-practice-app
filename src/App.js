@@ -1,28 +1,27 @@
 import React, { useState } from "react";
-import Navbar from "./Components/Nav/navbar";
-import "./style.css";
+// import Navbar from "./Components/Nav/navbar";
 import BarberShop from "./Components/barberShopCode";
 
 function App() {
-  const [wives, setWives] = useState(0);
+  // const [wives, setWives] = useState(0);
 
-  const [kids, setKids] = useState(0);
+  // const [kids, setKids] = useState(0);
 
-  const addWife = () => {
-    setWives((prevWives) => prevWives + 1);
-    setKids((prevKids) => prevKids + 3);
-  };
+  // const addWife = () => {
+  //   setWives((prevWives) => prevWives + 1);
+  //   setKids((prevKids) => prevKids + 3);
+  // };
 
-  const minWife = () => {
-    if (wives > 0) {
-      setWives(wives - 1);
-    }
-  };
+  // const minWife = () => {
+  //   if (wives > 0) {
+  //     setWives(wives - 1);
+  //   }
+  // };
 
-  const resetValue = () => {
-    setWives(0);
-    setKids(0);
-  };
+  // const resetValue = () => {
+  //   setWives(0);
+  //   setKids(0);
+  // };
 
   return (
     <div className="App">
