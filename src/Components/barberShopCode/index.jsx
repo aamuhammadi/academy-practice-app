@@ -4,6 +4,7 @@ import FeaturesSec from "./featuresSec";
 import ServicesSec from "./servicesSec";
 import Testimonials from "./testimonials";
 import Footer from "./footer";
+import TestComponent from "./testComponent";
 
 function BarberShop() {
   return (
