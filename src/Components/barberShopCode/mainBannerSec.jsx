@@ -1,13 +1,13 @@
 import React from "react";
 
-function MainBannerSec() {
+function MainBannerSec({ Heading, SubHeading }) {
   return (
     <>
       <section id="banner">
         <img src="img/studio.png" className="logo" />
         <div className="banner-text">
-          <h1>Hair Studio</h1>
-          <p>Style Your Hair is Style Your Life</p>
+          <h1>{Heading}</h1>
+          <p>{SubHeading}</p>
           <div className="banner-btn">
             <a href="#">
               <span />
