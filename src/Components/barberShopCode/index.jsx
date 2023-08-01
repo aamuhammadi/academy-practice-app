@@ -5,6 +5,7 @@ import ServicesSec from "./servicesSec";
 import Testimonials from "./testimonials";
 import Footer from "./footer";
 import TestComponent from "./testComponent";
+import ChildExample from "./ChildExample";
 
 function BarberShop({ MainHeading, SubHeading }) {
   useEffect(() => {
@@ -41,16 +42,16 @@ function BarberShop({ MainHeading, SubHeading }) {
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
       />{" "}
-      {/* main banner */}
-      <MainBannerSec Heading={MainHeading} SubHeading={SubHeading} />
-      {/* FEATURES */}
-      <FeaturesSec />
-      {/* SERVICES */}
-      <ServicesSec />
-      {/* TESTIMONIALS */}
-      <Testimonials />
-      {/* footter */}
-      <Footer />
+      <ChildExample>
+        {/* main banner */}
+        <MainBannerSec Heading={MainHeading} SubHeading={SubHeading} />
+        {/* FEATURES */}
+        <FeaturesSec />
+        {/* SERVICES */}
+        <ServicesSec />
+        {/* TESTIMONIALS */}
+        <Testimonials />
+      </ChildExample>
     </div>
   );
 }
