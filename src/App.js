@@ -5,6 +5,36 @@ function App() {
   const [newTask, setNewTask] = useState("");
   const [pendingTasks, setPendingTasks] = useState([]);
   const [completeTasks, setCompleteTasks] = useState([]);
+  const [eptIndex, setEptIndex] = useState(-1);
+  const [epTask, setEpTask] = useState("");
+  const [ectIndex, setEctIndex] = useState(-1);
+  const [ecTask, setEcTask] = useState("");
+
+  const cttEdit = (index, task) => {
+    setEctIndex(index);
+    setEcTask(task);
+  };
+
+  const updateCTask = () => {
+    const updatedCTask = [...completeTasks];
+    updatedCTask[ectIndex] = ecTask;
+    setCompleteTasks(updatedCTask);
+    setEctIndex(-1);
+    setEcTask("");
+  };
+
+  const pttEdit = (index, task) => {
+    setEptIndex(index);
+    setEpTask(task);
+  };
+
+  const updatePTask = () => {
+    const updatedPTask = [...pendingTasks];
+    updatedPTask[eptIndex] = epTask;
+    setPendingTasks(updatedPTask);
+    setEptIndex(-1);
+    setEpTask("");
+  };
 
   const addPendingTask = () => {
     setPendingTasks([...pendingTasks, newTask]);
@@ -62,19 +92,40 @@ function App() {
           <ul>
             {pendingTasks.map((pt, i) => (
               <li key={i}>
-                {pt}
-                <button
-                  className="complete-button"
-                  onClick={() => handleCompleteTask(i)}
-                >
-                  Complete
-                </button>
-                <button
-                  className="delete-button"
-                  onClick={() => deleteTask(i, "pending")}
-                >
-                  Delete
-                </button>
+                {eptIndex === i ? (
+                  <>
+                    <input
+                      type="text"
+                      value={epTask}
+                      onChange={(e) => setEpTask(e.target.value)}
+                    />
+                    <button className="update-button" onClick={updatePTask}>
+                      Update
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    {pt}
+                    <button
+                      className="complete-button"
+                      onClick={() => handleCompleteTask(i)}
+                    >
+                      Complete
+                    </button>
+                    <button
+                      className="edit-button"
+                      onClick={() => pttEdit(i, pt)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="delete-button"
+                      onClick={() => deleteTask(i, "pending")}
+                    >
+                      Delete
+                    </button>
+                  </>
+                )}
               </li>
             ))}
           </ul>
@@ -84,13 +135,35 @@ function App() {
           <ul>
             {completeTasks.map((ct, i) => (
               <li key={i}>
-                {ct}
-                <button
-                  className="delete-button"
-                  onClick={() => deleteTask(i, "complete")}
-                >
-                  Delete
-                </button>
+                {ectIndex === i ? (
+                  <>
+                    <input
+                      type="text"
+                      value={ecTask}
+                      onChange={(e) => setEcTask(e.target.value)}
+                    />
+                    <button className="update-button" onClick={updateCTask}>
+                      Update
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    {ct}
+                    <button
+                      className="edit-button"
+                      onClick={() => cttEdit(i, ct)}
+                    >
+                      Edit
+                    </button>
+
+                    <button
+                      className="delete-button"
+                      onClick={() => deleteTask(i, "complete")}
+                    >
+                      Delete
+                    </button>
+                  </>
+                )}
               </li>
             ))}
           </ul>

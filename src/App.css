@@ -21,21 +21,59 @@ input[type="text"] {
   border-radius: 4px;
   margin-right: 10px;
   flex: 1;
-  max-width: 50%;
+  max-width: 60%; /* Adjust the max-width for better responsiveness */
 }
 
-.add-button {
+.add-button,
+.complete-button,
+.delete-button,
+.edit-button,
+.update-button {
   padding: 10px 20px;
-  background-color: #3498db;
-  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-left: 10px; /* Add margin to separate buttons */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.add-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.complete-button {
+  background-color: #27ae60;
+  color: white;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.edit-button {
+  background-color: #f39c12;
+  color: white;
+}
+
+.update-button {
+  background-color: #311569;
+  color: white;
+}
+
+.add-button:hover,
+.complete-button:hover,
+.delete-button:hover,
+.edit-button:hover,
+.update-button:hover {
+  background-color: #333; /* Darken the color on hover */
 }
 
 .tasks-container {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap; /* Allow tasks to wrap on smaller screens */
 }
 
 .tasks-list {
@@ -44,7 +82,7 @@ input[type="text"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #f9f9f9;
-  margin: 0 10px;
+  margin: 10px; /* Add margin to separate task lists */
   max-height: 300px;
   overflow-y: auto;
 }
@@ -64,22 +102,4 @@ li {
   justify-content: space-between;
   align-items: center;
   padding: 5px 0;
-}
-
-.complete-button {
-  padding: 5px 10px;
-  background-color: #27ae60;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.delete-button {
-  padding: 5px 10px;
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
 }
