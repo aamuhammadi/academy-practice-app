@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import { message } from "antd";
 
 function App() {
   const [newTask, setNewTask] = useState("");
@@ -21,6 +22,7 @@ function App() {
     setCompleteTasks(updatedCTask);
     setEctIndex(-1);
     setEcTask("");
+    message.success("Your Task Has Been Updated!");
   };
 
   const pttEdit = (index, task) => {
@@ -34,11 +36,13 @@ function App() {
     setPendingTasks(updatedPTask);
     setEptIndex(-1);
     setEpTask("");
+    message.success("Your Task Has Been Updated!");
   };
 
   const addPendingTask = () => {
     setPendingTasks([...pendingTasks, newTask]);
     setNewTask("");
+    message.success("Your Task Has Been Added!");
   };
 
   const handleAddTask = (e) => {
@@ -50,15 +54,27 @@ function App() {
     setCompleteTasks([...completeTasks, taskToComplete]);
     const updatedPendingTasks = pendingTasks.filter((_, i) => i !== index);
     setPendingTasks(updatedPendingTasks);
+    message.success("Your Task Has Been Moved to Complete!");
+  };
+
+  const handleCTPendingTask = (index) => {
+    const taskToPending = completeTasks[index];
+    setPendingTasks([...pendingTasks, taskToPending]);
+    const updatedCompleteTasks = completeTasks.filter((_, i) => i !== index);
+    setCompleteTasks(updatedCompleteTasks);
+    message.success("Your Task Has Been Moved to Pending!");
   };
 
   const deleteTask = (index, taskType) => {
     if (taskType === "pending") {
       const updatedPendingTasks = pendingTasks.filter((_, i) => i !== index);
+
       setPendingTasks(updatedPendingTasks);
+      message.success("Your Task Has Been Deleted!");
     } else if (taskType === "complete") {
       const updatedCompleteTasks = completeTasks.filter((_, i) => i !== index);
       setCompleteTasks(updatedCompleteTasks);
+      message.success("Your Task Has Been Deleted!");
     }
   };
 
@@ -105,7 +121,7 @@ function App() {
                   </>
                 ) : (
                   <>
-                    {pt}
+                    {`${i + 1}. ${pt}`}
                     <button
                       className="complete-button"
                       onClick={() => handleCompleteTask(i)}
@@ -142,13 +158,20 @@ function App() {
                       value={ecTask}
                       onChange={(e) => setEcTask(e.target.value)}
                     />
+
                     <button className="update-button" onClick={updateCTask}>
                       Update
                     </button>
                   </>
                 ) : (
                   <>
-                    {ct}
+                    {`${i + 1}. ${ct}`}
+                    <button
+                      className="complete-button"
+                      onClick={() => handleCTPendingTask(i)}
+                    >
+                      Pending
+                    </button>
                     <button
                       className="edit-button"
                       onClick={() => cttEdit(i, ct)}

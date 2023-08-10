@@ -21,7 +21,7 @@ input[type="text"] {
   border-radius: 4px;
   margin-right: 10px;
   flex: 1;
-  max-width: 60%; /* Adjust the max-width for better responsiveness */
+  max-width: 40%;
 }
 
 .add-button,
