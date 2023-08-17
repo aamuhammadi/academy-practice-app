@@ -1,24 +1,44 @@
 import React, { useState } from "react";
 import "./App.css";
-import ReactConfetti from "react-confetti";
 
 function App() {
-  const [title, setTitle] = useState(
-    "Listening to Events & Working with Event Handlers"
-  );
+  const [name, setName] = useState("");
+  const [amount, setAmount] = useState("");
 
-  const clickMe = () => {
-    setTitle("Muhammadi Clicked Me!");
+  // const nameInput = (e) => {
+  //   setName(e.target.value);
+  // };
+
+  // const amountInput = (e) => {
+  //   setAmount(e.target.value);
+  // };
+
+  const inputHandler = (type, basharat) => {
+    if (type === "product") {
+      setName(basharat);
+    } else {
+      setAmount(basharat);
+    }
   };
 
   return (
     <div className="App">
-      {/* <h1>Welcome to the Confetti Party!</h1> */}
-      {/* <ReactConfetti /> */}
-      <h1>{title}</h1>
-      <button className="edit-button" onClick={clickMe}>
-        Click Me!
-      </button>
+      <form>
+        <h2>Product Name</h2>
+        <input
+          type="text"
+          onChange={(e) => inputHandler("product", e.target.value)}
+        />
+        <h2>Amount</h2>
+        <input
+          type="number"
+          onChange={(e) => inputHandler("amount", e.target.value)}
+        />
+      </form>
+      <h1>Products || Amount</h1>
+      <h2>
+        {name} || {amount}
+      </h2>
     </div>
   );
 }
