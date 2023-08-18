@@ -1,44 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import PageNotFound from "./Pages/PageNotFound";
 
 function App() {
-  const [name, setName] = useState("");
-  const [amount, setAmount] = useState("");
-
-  // const nameInput = (e) => {
-  //   setName(e.target.value);
-  // };
-
-  // const amountInput = (e) => {
-  //   setAmount(e.target.value);
-  // };
-
-  const inputHandler = (type, basharat) => {
-    if (type === "product") {
-      setName(basharat);
-    } else {
-      setAmount(basharat);
-    }
-  };
-
   return (
     <div className="App">
-      <form>
-        <h2>Product Name</h2>
-        <input
-          type="text"
-          onChange={(e) => inputHandler("product", e.target.value)}
-        />
-        <h2>Amount</h2>
-        <input
-          type="number"
-          onChange={(e) => inputHandler("amount", e.target.value)}
-        />
-      </form>
-      <h1>Products || Amount</h1>
-      <h2>
-        {name} || {amount}
-      </h2>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
