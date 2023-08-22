@@ -145,3 +145,52 @@ h2 {
     margin-bottom: 20px;
   }
 }
+.header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  background-color: #555;
+}
+.footer-container {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-content a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-content a:hover {
+  color: #66aaff;
+}
