@@ -149,12 +149,13 @@ h2 {
   background-color: #333;
   color: white;
   padding: 1rem;
+  text-align: center; /* Center align content */
 }
 
 .nav-list {
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center align the items */
   padding: 0;
 }
 
@@ -172,6 +173,14 @@ h2 {
 .nav-link:hover {
   background-color: #555;
 }
+
+.nav-links-active {
+  /* Add your custom styles here */
+  background-color: green; /* For example, change the text color */
+  font-weight: bold; /* Add emphasis, like making the font bold */
+  /* Add any other styles you want to apply */
+}
+
 .footer-container {
   background-color: #333;
   color: #fff;
@@ -181,8 +190,10 @@ h2 {
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  gap: 10px; /* Add some space between links and copyright text */
 }
 
 .footer-content a {

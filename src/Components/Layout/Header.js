@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Make sure to import Link from react-router-dom
+import { NavLink } from "react-router-dom"; // Make sure to import Link from react-router-dom
 
 function Header() {
   return (
@@ -7,19 +7,34 @@ function Header() {
       <nav className="nav">
         <ul className="nav-list">
           <li className="nav-item">
-            <Link to="/" className="nav-link">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "nav-link nav-links-active" : "nav-link"
+              }
+            >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/about" className="nav-link">
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? "nav-link nav-links-active" : "nav-link"
+              }
+            >
               About
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/contact" className="nav-link">
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive ? "nav-link nav-links-active" : "nav-link"
+              }
+            >
               Contact
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </nav>
