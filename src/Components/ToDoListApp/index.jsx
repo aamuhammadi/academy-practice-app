@@ -9,6 +9,7 @@ function ToDoListApp() {
   const [epTask, setEpTask] = useState("");
   const [ectIndex, setEctIndex] = useState(-1);
   const [ecTask, setEcTask] = useState("");
+  const [isValid, setIsValid] = useState(true);
 
   const cttEdit = (index, task) => {
     setEctIndex(index);
@@ -39,12 +40,17 @@ function ToDoListApp() {
   };
 
   const addPendingTask = () => {
+    if (newTask.trim().length === 0) {
+      setIsValid(false);
+      return message.error("Your Input Field Is Empty");
+    }
     setPendingTasks([...pendingTasks, newTask]);
     setNewTask("");
     message.success("Your Task Has Been Added!");
   };
 
   const handleAddTask = (e) => {
+    setIsValid(true);
     setNewTask(e.target.value);
   };
 
@@ -95,6 +101,7 @@ function ToDoListApp() {
           type="text"
           placeholder="Add task"
           value={newTask}
+          className={!isValid ? "empty-input" : ""}
           onChange={handleAddTask}
         />
         <button className="add-button" onClick={addPendingTask}>
