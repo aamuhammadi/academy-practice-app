@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { message } from "antd";
+import { TaskCtx } from "../Context";
 
 function ToDoListApp() {
-  const [newTask, setNewTask] = useState("");
   const [pendingTasks, setPendingTasks] = useState([]);
   const [completeTasks, setCompleteTasks] = useState([]);
   const [eptIndex, setEptIndex] = useState(-1);
@@ -10,6 +10,8 @@ function ToDoListApp() {
   const [ectIndex, setEctIndex] = useState(-1);
   const [ecTask, setEcTask] = useState("");
   const [isValid, setIsValid] = useState(true);
+
+  const { newTask, setNewTask } = useContext(TaskCtx);
 
   const cttEdit = (index, task) => {
     setEctIndex(index);

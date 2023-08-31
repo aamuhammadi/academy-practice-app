@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
@@ -13,20 +13,18 @@ import ToDoListApp from "./Components/ToDoListApp";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/items" element={<Items />} />
-            <Route path="/todolistapp" element={<ToDoListApp />} />
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/items" element={<Items />} />
+          <Route path="/todolistapp" element={<ToDoListApp />} />
 
-            <Route path="/items/:id" element={<ItemDetailPage />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
+          <Route path="/items/:id" element={<ItemDetailPage />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </Layout>
     </div>
   );
 }

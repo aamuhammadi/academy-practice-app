@@ -4,11 +4,17 @@ import "./index.css";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { GetNewTask } from "./Components/Context";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <GetNewTask>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </GetNewTask>
   </React.StrictMode>
 );
 
