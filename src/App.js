@@ -9,6 +9,7 @@ import Layout from "./Components/Layout/Index";
 import ItemDetailPage from "./Components/Store/ItemDetailPage";
 import Items from "./Components/Store/Items";
 import ToDoListApp from "./Components/ToDoListApp";
+import BarberShop from "./Components/barberShopCode";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/items" element={<Items />} />
+          <Route path="/barbershop" element={<BarberShop />} />
+
           <Route path="/todolistapp" element={<ToDoListApp />} />
 
           <Route path="/items/:id" element={<ItemDetailPage />} />
